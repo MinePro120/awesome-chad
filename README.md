@@ -1,16 +1,13 @@
 # Awesome-Chad
-___
 
 ## About
 *Awesome-Chad* is a complete config for **[Awesome WM](https://awesomewm.org/)** made to look and function like *[chadwm](https://github.com/siduck/chadwm)*. It aims to provide the same user experience as chadwm, while being highly configurable and easily maintainable. The (only) downside is higher memory usage (~ `60MB`, + `10MB` for every tag, if tag previews are enabled).
 
-<img src="https://github.com/MinePro120/awesome-chad/blob/main/media/screenshot.png" width=75%>
+<img src="https://github.com/MinePro120/awesome-chad/blob/main/media/screenshot.png" width="75%">
 
 ### Preview
 
-<video src="https://github.com/MinePro120/awesome-chad/blob/main/media/video.mp4" width=75% controls>
-Your browser does not support this video
-</video>
+https://github.com/user-attachments/assets/2ca09ab1-3723-49ad-adf6-2bf24d2560c5
 
 ### Included color themes
 * Nord
@@ -42,7 +39,7 @@ cp -r awesome-chad/rofi ~/.config
 * In `themes/<theme>/theme.lua` you can change the colors, fonts, icons, tags, gaps etc.
 
 ## Notes
-* As mentioned before, tag previews are memory heavy (+ `10MB` for every tag), so there is an option to disable theme in `theme.lua` (`theme.tagpreview_enable`).
+* As mentioned before, tag previews are memory heavy (+ `10MB` for every tag), so there is an option to disable them in `theme.lua` (`theme.tagpreview_enable`).
 * This is my personal config; you are encouraged to modify it locally based on your needs. Only contributions regarding color themes, bug fixes and general improvements will be accepted.
 * The default color theme for awesome and rofi is **nord** by default.
 * *Picom* is used for the rounded corners in the screenshots.
