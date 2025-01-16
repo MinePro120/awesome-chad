@@ -1,0 +1,95 @@
+configuration{
+    modi: "run,drun,window";
+    lines: 5;
+    font: "Noto Sans 14";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: false;
+    display-drun: "    Apps ";
+}
+
+@theme "nord"
+
+element-text, element-icon, mode-switcher {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+window {
+    height: 30%;
+    width: 35%;
+    border: 0px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg-col;
+}
+
+prompt {
+    background-color: @blue-col;
+    padding: 6px;
+    text-color: @bg-col;
+    border-radius: 10px;
+    margin: 20px 10px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 20px 0px 0px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+    margin: 20px 20px 0px 20px;
+    columns: 2;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5px;
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+element-icon {
+    size: 24px;
+}
+
+element selected {
+    background-color: @bg-sel-col;
+    text-color: @fg2-col;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 10px;
+    background-color: @bg-light-col;
+    text-color: @grey-col;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @bg-col;
+  text-color: @blue-col;
+}
