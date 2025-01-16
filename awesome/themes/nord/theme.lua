@@ -19,24 +19,24 @@ theme.statusbar_font = "SauceCodePro NFM 16"
 
 
 -- Nord colors
-local nord = {}
-nord.polar = { "#2e3440", "#3b4252", "#434c5e", "#4c566a" }
-nord.snow = { "#d8dee9", "#e5e9f0", "#eceff4" }
-nord.frost = { "#8fbcbb", "#88c0d0", "#81a1c1", "#5e81ac" }
+local nord  = {}
+nord.polar  = { "#2e3440", "#3b4252", "#434c5e", "#4c566a" }
+nord.snow   = { "#d8dee9", "#e5e9f0", "#eceff4" }
+nord.frost  = { "#8fbcbb", "#88c0d0", "#81a1c1", "#5e81ac" }
 nord.aurora = { "#bf616a", "#d08770", "#ebcb8b", "#a3be8c", "#b48ead" }
 
 
 -- Global colors
-theme.bg_normal     = nord.polar[1]
-theme.bg_focus      = nord.polar[4]
-theme.bg_urgent     = nord.aurora[1]
-theme.bg_minimize   = nord.polar[2]
-theme.bg_systray    = theme.bg_normal
+theme.bg_normal   = nord.polar[1]
+theme.bg_focus    = nord.polar[4]
+theme.bg_urgent   = nord.aurora[1]
+theme.bg_minimize = nord.polar[2]
+theme.bg_systray  = theme.bg_normal
 
-theme.fg_normal     = nord.snow[2]
-theme.fg_focus      = nord.snow[3]
-theme.fg_urgent     = theme.bg_normal
-theme.fg_minimize   = nord.snow[1]
+theme.fg_normal   = nord.snow[2]
+theme.fg_focus    = nord.snow[3]
+theme.fg_urgent   = theme.bg_normal
+theme.fg_minimize = nord.snow[1]
 
 
 -- Statusbar
@@ -88,9 +88,9 @@ theme.tag_colors = {
 
 
 -- Taglist
-theme.taglist_margin_t = 0
-theme.taglist_margin_lr = dpi(3)
-theme.taglist_width = dpi(27)
+theme.taglist_margin_t         = 0
+theme.taglist_margin_lr        = dpi(3)
+theme.taglist_width            = dpi(27)
 theme.taglist_underline_height = dpi(2)
 
 theme.taglist_fg_empty = nord.polar[4]
@@ -115,13 +115,13 @@ theme.menu_width  = dpi(100)
 
 -- Systray
 theme.systray_icon_spacing = dpi(3)
-theme.systray_icon_size = 24
-theme.systray_margin = dpi(3)
+theme.systray_icon_size    = 24
+theme.systray_margin       = dpi(3)
 
 
 -- Gaps and margins
 theme.useless_gap       = dpi(1.5)
-theme.bar_gap           = dpi(3)
+theme.bar_gap           = 2 * theme.useless_gap
 
 theme.tasklist_margin   = dpi(3)
 theme.tasklist_spacing  = dpi(1.5)
@@ -142,22 +142,22 @@ theme.border_width = 0
 
 
 -- Layout icons
-theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
-theme.layout_fairv = themes_path.."default/layouts/fairvw.png"
-theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
-theme.layout_magnifier = themes_path.."default/layouts/magnifierw.png"
-theme.layout_max = themes_path.."default/layouts/maxw.png"
+theme.layout_fairh      = themes_path.."default/layouts/fairhw.png"
+theme.layout_fairv      = themes_path.."default/layouts/fairvw.png"
+theme.layout_floating   = themes_path.."default/layouts/floatingw.png"
+theme.layout_magnifier  = themes_path.."default/layouts/magnifierw.png"
+theme.layout_max        = themes_path.."default/layouts/maxw.png"
 theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
 theme.layout_tilebottom = themes_path.."default/layouts/tilebottomw.png"
 theme.layout_tileleft   = themes_path.."default/layouts/tileleftw.png"
-theme.layout_tile = themes_path.."default/layouts/tilew.png"
-theme.layout_tiletop = themes_path.."default/layouts/tiletopw.png"
-theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
-theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
-theme.layout_cornernw = themes_path.."default/layouts/cornernww.png"
-theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
-theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
-theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
+theme.layout_tile       = themes_path.."default/layouts/tilew.png"
+theme.layout_tiletop    = themes_path.."default/layouts/tiletopw.png"
+theme.layout_spiral     = themes_path.."default/layouts/spiralw.png"
+theme.layout_dwindle    = themes_path.."default/layouts/dwindlew.png"
+theme.layout_cornernw   = themes_path.."default/layouts/cornernww.png"
+theme.layout_cornerne   = themes_path.."default/layouts/cornernew.png"
+theme.layout_cornersw   = themes_path.."default/layouts/cornersww.png"
+theme.layout_cornerse   = themes_path.."default/layouts/cornersew.png"
 
 
 -- Define the icon theme for application icons. If not set then the icons
