@@ -32,7 +32,7 @@ local ac_cmd = "cat /sys/class/power_supply/ADP*/online"
 local brightness_cmd = "cat /sys/class/backlight/*/actual_brightness || echo 0"
 local cpu_cmd = "grep -o '^[^ ]*' /proc/loadavg"
 local mem_cmd = "free --si -h | awk '/^Mem/ { print $3 }'"
-local disk_cmd = "df -h / --output=used | tail -n 1 | cut -d ' ' -f 3"
+local disk_cmd = "df -h / --output=used | awk 'NR==2{ print $1 }'"
 local clock_cmd = "date '+%a %d %b %H:%M:%S'"
 
 -- Statusbar update interval in seconds (CHANGEME)
@@ -109,6 +109,7 @@ mystatusbar = wibox.widget {
             {
                 {
                     id = "updates_text",
+                    text = "0",
                     widget = wibox.widget.textbox,
                     font = beautiful.font,
                 },
@@ -403,8 +404,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
             buttons = {
                 awful.button({ }, 1, function () awful.layout.inc( 1) end),
                 awful.button({ }, 3, function () awful.layout.inc(-1) end),
-                awful.button({ }, 4, function () awful.layout.inc(-1) end),
-                awful.button({ }, 5, function () awful.layout.inc( 1) end),
+                awful.button({ }, 4, function () awful.layout.inc( 1) end),
+                awful.button({ }, 5, function () awful.layout.inc(-1) end),
             }
         },
         top = beautiful.layoutbox_margin,
@@ -535,8 +536,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
                                                 client.focus:toggle_tag(t)
                                             end
                                         end),
-            awful.button({ }, 4, function(t) awful.tag.viewprev(t.screen) end),
-            awful.button({ }, 5, function(t) awful.tag.viewnext(t.screen) end),
+            awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+            awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end),
         }
     }
 
@@ -551,8 +552,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 end),
                 awful.button({ }, 2, function(c) c:kill() end),
                 awful.button({ }, 3, function() awful.menu.client_list { theme = { width = 250 } } end),
-                awful.button({ }, 4, function() awful.client.focus.byidx(-1) end),
-                awful.button({ }, 5, function() awful.client.focus.byidx( 1) end),
+                awful.button({ }, 4, function() awful.client.focus.byidx( 1) end),
+                awful.button({ }, 5, function() awful.client.focus.byidx(-1) end),
             }
         },
         --left = beautiful.tasklist_margin,
@@ -614,10 +615,12 @@ end)
 -- }}}
 
 -- {{{ Mouse bindings
+
 awful.mouse.append_global_mousebindings({
-    awful.button({ }, 4, awful.tag.viewprev),
-    awful.button({ }, 5, awful.tag.viewnext),
+    awful.button({ modkey }, 4, awful.tag.viewnext),
+    awful.button({ modkey }, 5, awful.tag.viewprev),
 })
+
 -- }}}
 
 -- {{{ Key bindings
@@ -674,15 +677,15 @@ awful.keyboard.append_global_keybindings({
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey,           }, "j",
         function ()
-            awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "k",
-        function ()
             awful.client.focus.byidx(-1)
         end,
         {description = "focus previous by index", group = "client"}
+    ),
+    awful.key({ modkey,           }, "k",
+        function ()
+            awful.client.focus.byidx( 1)
+        end,
+        {description = "focus next by index", group = "client"}
     ),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -928,7 +931,7 @@ client.connect_signal("request::manage",
 )
 
 -- Change urgent bg color based on (first) tag of client
-client.connect_signal("request::urgent",
+client.connect_signal("property::urgent",
     function(c)
         if c.urgent and c.first_tag ~= nil then
             beautiful.bg_urgent = beautiful.tag_colors[c.first_tag.index]
